@@ -10,7 +10,12 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 Fusion Lounge
 
 There are other restaurants and menu also, their data is fetched from json file.
-Login details are fetched from mockapi: https://672dd79bfd8979715643ea5d.mockapi.io/userdetails
+Login/Logout works! Login details are fetched from mockapi: https://672dd79bfd8979715643ea5d.mockapi.io/userdetails
+
 One valid credential is: 
     Username: Prashant
     Password: password
+
+Also, implemented sort and filter on homepage.
+The cart keeps track of all the items added in local storage.
+Similarly user's login session can also be stored in localhost but due to tie contraint, couldn't do it.
