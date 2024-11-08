@@ -4,7 +4,11 @@ module.exports = {
     "./src/**/*.{html,ts}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        swiggyOrange: '#FF5200', // Custom color named "swiggyOrange"
+      },
+    },
   },
   plugins: [],
 }

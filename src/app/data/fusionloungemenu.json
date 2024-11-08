@@ -1,0 +1,104 @@
+[
+  {
+      "category": "Paneer",
+      "items": [
+        {
+          "id": "paneer-pasanda",
+          "name": "Paneer Pasanda",
+          "price": 220,
+          "rating": 4.3,
+          "ratingCount": 4,
+          "description": "A rich and flavorful thali that is a delightful full package meal.",
+          "isVeg": true
+        },
+        {
+          "id": "paneer-tikka-masala",
+          "name": "Paneer Tikka Masala",
+          "price": 250,
+          "rating": 4.3,
+          "ratingCount": 4,
+          "description": "A rich and flavorful thali that is a delightful full package meal.",
+          "isVeg": true
+        },
+        {
+          "id": "paneer-butter-masala",
+          "name": "Paneer Butter Masala",
+          "price": 280,
+          "rating": 4.2,
+          "ratingCount": 5,
+          "description": "Cubes of paneer simmered in a creamy, tomato-based curry.",
+          "isVeg": true
+        }
+      ]
+  },
+  {
+      "category": "Chicken",
+      "items": [
+        {
+          "id": "chicken-nonveg-thali",
+          "name": "Nonveg Thali",
+          "price": 290,
+          "rating": 4.3,
+          "ratingCount": 4,
+          "description": "A rich and flavorful thali that is a delightful full package meal.",
+          "isVeg": false
+        },
+        {
+          "id": "chicken-butter-chicken",
+          "name": "Butter Chicken",
+          "price": 280,
+          "rating": 4.1,
+          "ratingCount": 3,
+          "description": "A rich and flavorful non-Veg dish that is a delightful addition to any Main Course meal.",
+          "isVeg": false
+        }
+      ]
+  },
+  {
+      "category": "Vegetables",
+      "items": [
+        {
+          "id": "veg-thali",
+          "name": "Veg Thali",
+          "price": 290,
+          "rating": 4.3,
+          "ratingCount": 4,
+          "description": "A rich and flavorful thali that is a delightful full package meal.",
+          "isVeg": true
+        },
+        {
+          "id": "veg-palak-paneer",
+          "name": "Palak Paneer",
+          "price": 270,
+          "rating": 4.5,
+          "ratingCount": 6,
+          "description": "Cubes of paneer in a creamy, spinach-based curry.",
+          "isVeg": true
+        }
+        ,
+        {
+          "id": "mushroom-masala",
+          "name": "Masala Mushroom",
+          "price": 200,
+          "rating": 4.5,
+          "ratingCount": 6,
+          "description": "Cubes of paneer in a creamy, spinach-based curry.",
+          "isVeg": true
+        }
+      ]
+  },
+  {
+      "category": "Chefs Special",
+      "items": [
+        {
+          "id": "special-thali",
+          "name": "Special Thali",
+          "price": 290,
+          "rating": 4.3,
+          "ratingCount": 4,
+          "description": "A rich and flavorful thali that is a delightful full package meal.",
+          "isVeg": false
+        }
+      ]
+  }
+]

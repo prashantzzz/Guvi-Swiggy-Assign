@@ -1,0 +1,115 @@
+[
+    {
+      "id": 1,
+      "name": "Fusion Lounge",
+      "imageUrl": "/assets/barbequeen.avif",
+      "discount": "40% OFF UPTO ₹80",
+      "price":450,
+      "rating": 3.8,
+      "deliveryTime": "20-25 mins",
+      "cuisine": [
+        "Biryani",
+        "Barbecue",
+        "South Indian"
+      ],
+      "location": "Salem Bus stand"
+    },
+    {
+      "id": 2,
+      "name": "Crusto's Bakery",
+      "imageUrl": "/assets/crusto.avif",
+      "discount": "₹125 OFF ABOVE ₹249",
+      "price":280,
+      "rating": 4.4,
+      "deliveryTime": "30-35 mins",
+      "cuisine": [
+        "Pizzas",
+        "Pastas",
+        "Fast Food",
+        "Snacks"
+      ],
+      "location": "Meyyanur Main Rd"
+    },
+    {
+      "id": 3,
+      "name": "Cupcake Town",
+        "imageUrl": "/assets/cupcake.avif",
+        "discount": "40% OFF UPTO ₹80",
+        "price":300,
+        "rating": 3.9,
+        "deliveryTime": "25-30 mins",
+        "cuisine": ["Bakery", "Desserts", "Ice Cream"],
+        "location": "Salem Bus stand"
+    },
+    {
+       "id":4,
+        "name": "Pizza Attack",
+        "imageUrl": "/assets/olio.avif",
+        "discount": "₹125 OFF ABOVE ₹249",
+        "price":350,
+        "rating": 3.6,
+        "deliveryTime": "30-35 mins",
+        "cuisine": ["Pizzas", "Pastas", "Fast Food", "Snacks"],
+        "location": "Meyyanur Main Rd"
+    },
+    {
+        "id": 5,
+        "name": "Sizzling Wok",
+        "imageUrl": "/assets/sizzlingwok.jpg",
+        "discount": "30% OFF UPTO ₹75",
+        "price":650,
+        "rating": 4.3,
+        "deliveryTime": "25-30 mins",
+        "cuisine": [
+          "Chinese",
+          "Thai",
+          "Vietnamese"
+        ],
+        "location": "Opp. Government Hospital"
+      },
+      {
+        "id": 6,
+        "name": "Spice Bazaar",
+        "imageUrl": "/assets/spicebazaar.jpg",
+        "discount": "₹100 OFF ABOVE ₹199",
+        "price":220,
+        "rating": 4.0,
+        "deliveryTime": "35-40 mins",
+        "cuisine": [
+          "North Indian",
+          "Mughlai",
+          "Biryani"
+        ],
+        "location": "Gandhi Nagar"
+      },
+      {
+        "id": 7,
+        "name": "The Green Leaf",
+        "imageUrl": "/assets/pasanda.avif",
+        "discount": "₹80 OFF ABOVE ₹149",
+        "price":290,
+        "rating": 4.2,
+        "deliveryTime": "20-25 mins",
+        "cuisine": [
+          "Vegetarian",
+          "South Indian",
+          "Healthy"
+        ],
+        "location": "Kamaraj Nagar"
+      },
+      {
+        "id": 8,
+        "name": "Mughal Darbar",
+        "imageUrl": "/assets/barbequeen.avif",
+        "discount": "",
+        "price":750,
+        "rating": 4.1,
+        "deliveryTime": "30-35 mins",
+        "cuisine": [
+          "Mughlai",
+          "Kebabs",
+          "Biryani"
+        ],
+        "location": "Railway Station"
+      }
+  ]
