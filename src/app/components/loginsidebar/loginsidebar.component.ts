@@ -1,13 +1,22 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+
+interface UserDetails {
+    name: string;
+    username: string;
+    password: string;
+    id: string;
+  }
 
 @Component({
   selector: 'app-login-sidebar',
   standalone: true,
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   template: `
     <!-- Backdrop -->
@@ -52,24 +61,27 @@ import { FormsModule } from '@angular/forms';
           </div>
         </div>
 
-        <!-- Phone Input -->
+        <!-- Username and Password Inputs -->
         <div class="mb-6">
-          <input class="m-4"
-            type="name"
+          <input
+            type="text"
             placeholder="Username"
-            class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:border-orange-500"
+            class="m-4 w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:border-orange-500"
             [(ngModel)]="username"
           />
-          <input  class="m-4"
+          <input
             type="password"
             placeholder="Password"
-            class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:border-orange-500"
+            class="m-4 w-full px-4 py-3 border border -gray-300 rounded focus:outline-none focus:border-orange-500"
             [(ngModel)]="password"
           />
         </div>
 
         <!-- Login Button -->
-        <button class="w-full bg-orange-500 text-white py-3 rounded font-medium hover:bg-orange-600 transition-colors">
+        <button 
+          class="w-full bg-orange-500 text-white py-3 rounded font-medium hover:bg-orange-600 transition-colors"
+          (click)="login()"
+        >
           LOGIN
         </button>
 
@@ -87,6 +99,26 @@ import { FormsModule } from '@angular/forms';
 export class LoginSidebarComponent {
   @Input() isOpen: boolean = false;
   @Output() onClose = new EventEmitter<void>();
+  @Output() onLogin = new EventEmitter<void>();
+
   username: string = '';
   password: string = '';
+
+  constructor(private http: HttpClient) {}
+
+  login() {
+    this.http.get<UserDetails[]>('https://672dd79bfd8979715643ea5d.mockapi.io/userdetails')
+      .subscribe(users => {
+        const user = users.find(u => u.username === this.username && u.password === this.password);
+        if (user) {
+          console.log('Login successful!');
+          this.onLogin.emit();
+          this.onClose.emit();
+          alert('Login successful!');
+        } else {
+          console.log('Invalid credentials');
+          alert('Invalid credentials');
+        }
+      });
+  }
 }

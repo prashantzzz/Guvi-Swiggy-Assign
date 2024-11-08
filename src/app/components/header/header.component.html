@@ -100,7 +100,7 @@
                 Help
             </button>
 
-            
+
             <!-- login code -->
             <button (click)="openLogin()" class="flex items-center text-gray-700 hover:text-swiggyOrange">
                 <svg class="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -109,7 +109,7 @@
                 </svg>
                 Sign In
             </button>
-            <app-login-sidebar [isOpen]="isLoginOpen" (onClose)="isLoginOpen = false"></app-login-sidebar>
+            <app-login-sidebar [isOpen]="isLoginOpen" (onClose)="isLoginOpen = false" (onLogin)="handleLogin()"></app-login-sidebar>
 
 
 

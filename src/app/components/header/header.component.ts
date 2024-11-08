@@ -26,10 +26,14 @@ export class HeaderComponent implements OnInit {
   constructor(private cartService: CartService) {}
 
   ngOnInit(): void {
-    // Subscribe to cart count changes
     this.cartService.getCartCount().subscribe(count => {
       this.cartCount = count;
     });
+  }
+
+  handleLogin() {
+    //any additional logic here, such as setting a logged-in state
+    console.log('Login successful!');
   }
 
   toggleDropdown() {
@@ -41,7 +45,6 @@ export class HeaderComponent implements OnInit {
     this.isDropdownOpen = false; // Close the dropdown after selection
   }
 
-  // Add these methods for login sidebar
   openLogin() {
     this.isLoginOpen = true;
   }

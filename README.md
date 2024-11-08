@@ -10,6 +10,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 Fusion Lounge
 
 There are other restaurants and menu also, their data is fetched from json file.
-Login details are fetched from mockapi
-
-Find the updated readme in the github link
+Login details are fetched from mockapi: https://672dd79bfd8979715643ea5d.mockapi.io/userdetails
+One valid credential is: 
+    Username: Prashant
+    Password: password
