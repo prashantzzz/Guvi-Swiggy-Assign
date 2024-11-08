@@ -45,10 +45,10 @@ interface UserDetails {
       <div class="p-8 pt-16">
         <h1 class="text-3xl font-bold mb-2">Login</h1>
         
-        <div class="mb-6">
+        <!-- <div class="mb-6">
           <span class="text-gray-600">or </span>
           <a href="#" class="text-orange-500 hover:text-orange-600">create an account</a>
-        </div>
+        </div> -->
 
         <!-- Biryani Image -->
         <div class="flex justify-center mb-4">
@@ -72,7 +72,7 @@ interface UserDetails {
           <input
             type="password"
             placeholder="Password"
-            class="m-4 w-full px-4 py-3 border border -gray-300 rounded focus:outline-none focus:border-orange-500"
+            class="m-4 w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:border-orange-500"
             [(ngModel)]="password"
           />
         </div>
@@ -99,7 +99,7 @@ interface UserDetails {
 export class LoginSidebarComponent {
   @Input() isOpen: boolean = false;
   @Output() onClose = new EventEmitter<void>();
-  @Output() onLogin = new EventEmitter<void>();
+  @Output() onLogin = new EventEmitter<string>();
 
   username: string = '';
   password: string = '';
@@ -111,14 +111,13 @@ export class LoginSidebarComponent {
       .subscribe(users => {
         const user = users.find(u => u.username === this.username && u.password === this.password);
         if (user) {
-          console.log('Login successful!');
-          this.onLogin.emit();
-          this.onClose.emit();
-          alert('Login successful!');
-        } else {
-          console.log('Invalid credentials');
-          alert('Invalid credentials');
-        }
+            console.log('Login successful!');
+            this.onLogin.emit(user.name); // Emit the user's name
+            this.onClose.emit();
+          } else {
+            console.log('Invalid credentials');
+            alert('Invalid credentials');
+          }
       });
   }
 }

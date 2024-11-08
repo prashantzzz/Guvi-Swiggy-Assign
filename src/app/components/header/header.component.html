@@ -101,17 +101,37 @@
             </button>
 
 
-            <!-- login code -->
-            <button (click)="openLogin()" class="flex items-center text-gray-700 hover:text-swiggyOrange">
-                <svg class="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <ng-container *ngIf="!isLoggedIn; else userInfo">
+                <button (click)="openLogin()" class="flex items-center text-gray-700 hover:text-swiggyOrange">
+                  <svg class="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                </svg>
-                Sign In
-            </button>
-            <app-login-sidebar [isOpen]="isLoginOpen" (onClose)="isLoginOpen = false" (onLogin)="handleLogin()"></app-login-sidebar>
-
-
+                      d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                  </svg>
+                  Sign In
+                </button>
+              </ng-container>
+              
+              <ng-template #userInfo>
+                <div class="flex items-center text-gray-700">
+                  <svg class="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                  </svg>
+                  <span>{{ loggedInUserName }}</span>
+                  <button 
+                    (click)="logout()" 
+                    class="ml-4 px-2 py-1 text-gray-600 border border-gray-300 rounded hover:text-white hover:bg-orange-500"
+                  >
+                    Logout
+                  </button>
+                </div>
+              </ng-template>
+              
+              <app-login-sidebar 
+                [isOpen]="isLoginOpen" 
+                (onClose)="closeLogin()" 
+                (onLogin)="handleLogin($event)">
+              </app-login-sidebar>
 
             <button class="flex items-center text-gray-700 hover:text-swiggyOrange" [routerLink]="'/cart'">
                 <svg class="w-5 h-5 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor">
