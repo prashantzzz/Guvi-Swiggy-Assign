@@ -10,7 +10,6 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 Fusion Lounge
 
 There are other restaurants and menu also, their data is fetched from json file.
-Login details is fetched from mockapi
-Cart service s implemented completely to form the bill
+Login details are fetched from mockapi
 
 Find the updated readme in the github link

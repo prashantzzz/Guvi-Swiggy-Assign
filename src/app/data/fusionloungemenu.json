@@ -75,8 +75,7 @@
           "description": "Cubes of paneer in a creamy, spinach-based curry.",
           "isVeg": true
         }
-        ,
-        {
+        ,{
           "id": "mushroom-masala",
           "name": "Masala Mushroom",
           "price": 200,

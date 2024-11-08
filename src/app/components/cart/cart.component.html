@@ -207,12 +207,12 @@
             <!-- cart items -->
             <div class="p-4 space-y-4">
                 <ng-container *ngIf="cartItems$ | async as cartItems">
-                    <!-- Empty Cart Message -->
+                    <!-- empty cart msg -->
                     <div *ngIf="cartItems.length === 0" class="text-center text-gray-500 py-4">
                         Your cart is empty
                     </div>
         
-                    <!-- Cart Items -->
+                    <!-- cart items -->
                     <div *ngFor="let item of cartItems" class="flex items-start justify-between gap-4">
                         <div class="flex-1">
                             <div class="flex items-center gap-2 mb-2">
@@ -234,14 +234,14 @@
                         </div>
                     </div>
         
-                    <!-- Suggestions Input -->
+                    <!-- suggestions -->
                     <div class="bg-gray-50 p-3 rounded text-sm text-gray-500 flex items-center">
                         <span class="mr-2">💬</span>
                         <input type="text" placeholder="Any suggestions? We will pass it on..."
                             class="bg-gray-50 text-gray-500 focus:outline-none w-full" />
                     </div>
         
-                    <!-- No Contact Delivery -->
+                    <!-- no contact delivery -->
                     <div class="border rounded p-4">
                         <label class="flex items-start gap-3">
                             <input type="checkbox" class="mt-1">
@@ -255,17 +255,17 @@
                         </label>
                     </div>
         
-                    <!-- Apply Coupon -->
-                    <button class="w-full border border-gray-200 rounded p-4 text-left flex items-center gap-3">
+                    <!-- coupon button -->
+                    <!-- <button class="w-full border border-gray-200 rounded p-4 text-left flex items-center gap-3">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-600" fill="none"
                             viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
                         </svg>
                         <span class="font-medium">Apply Coupon</span>
-                    </button>
+                    </button> -->
         
-                    <!-- Bill Details -->
+                    <!-- bill -->
                     <div class="space-y-3" *ngIf="cartTotal$ | async as total">
                         <h4 class="font-medium">Bill Details</h4>
                         <div class="flex justify-between text-sm">
@@ -288,7 +288,7 @@
                 </ng-container>
             </div>
         </div>
-        
+
     </div>
 </div>
 

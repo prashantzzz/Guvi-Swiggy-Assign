@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+import { CartService } from '../../services/cart.service';
+import { Observable } from 'rxjs';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 @Component({
@@ -8,9 +10,19 @@ import { CommonModule } from '@angular/common';
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
   isDropdownOpen = false;
   selectedLocation: string | null = null;
+  cartCount: number = 0;
+
+  constructor(private cartService: CartService) {}
+
+  ngOnInit(): void {
+    // Subscribe to cart count changes
+    this.cartService.getCartCount().subscribe(count => {
+      this.cartCount = count;
+    });
+  }
 
   toggleDropdown() {
     this.isDropdownOpen = !this.isDropdownOpen;

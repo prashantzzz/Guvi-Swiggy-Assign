@@ -15,6 +15,7 @@ interface Restaurant {
   deliveryTime: string;
   cuisine: string[];
   location: string;
+  url:string;
 }
 
 @Component({
@@ -28,11 +29,45 @@ export class HomeComponent implements OnInit {
   allRestaurants: Restaurant[] = restaurants;
   restaurants: Restaurant[] = restaurants;
   activeFilters: Set<string> = new Set();
-
+  showDropdown: boolean = false;
   constructor() { }
 
   ngOnInit() {
     this.restaurants = this.allRestaurants;
+  }
+
+  toggleDropdown() {
+    this.showDropdown = !this.showDropdown;
+  }
+
+  sortRestaurants(criteria: string) {
+    switch (criteria) {
+      case 'relevance':
+        this.restaurants = [...this.allRestaurants]; // Reset to default order
+        break;
+      case 'deliveryTime':
+        this.restaurants = [...this.allRestaurants].sort((a, b) => 
+          parseInt(a.deliveryTime) - parseInt(b.deliveryTime)
+        );
+        break;
+      case 'rating':
+        this.restaurants = [...this.allRestaurants].sort((a, b) => 
+          b.rating - a.rating
+        );
+        break;
+      case 'lowPrice':
+        this.restaurants = [...this.allRestaurants].sort((a, b) => 
+          a.price - b.price
+        );
+        break;
+      case 'highPrice':
+        this.restaurants = [...this.allRestaurants].sort((a, b) => 
+          b.price - a.price
+        );
+        break;
+    }
+
+    this.showDropdown = false; // Hide dropdown after selection
   }
 
   applyFilter(filterType: string) {

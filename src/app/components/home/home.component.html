@@ -87,27 +87,29 @@
         <div class="flex gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide">
             <div *ngFor="let restaurant of restaurants"
                 class="flex-shrink-0 rounded-2xl overflow-hidden shadow-lg bg-white snap-start w-[300px]">
-                <div class="relative">
-                    <img [src]="restaurant.imageUrl" [alt]="restaurant.name" class="w-full h-48 object-cover">
-                    <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black to-transparent">
-                        <span class="text-white text-xl font-bold">{{ restaurant.discount }}</span>
+                <a [routerLink]="restaurant.url">
+                    <div class="relative">
+                        <img [src]="restaurant.imageUrl" [alt]="restaurant.name" class="w-full h-48 object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black to-transparent">
+                            <span class="text-white text-xl font-bold">{{ restaurant.discount }}</span>
+                        </div>
                     </div>
-                </div>
-                <div class="p-4">
-                    <h3 class="font-bold text-xl mb-2">{{ restaurant.name }}</h3>
-                    <div class="flex items-center gap-2 mb-2">
-                        <span class="flex items-center gap-1 bg-green-700 text-white px-2 py-1 rounded text-sm">
-                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                                <path
-                                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                            </svg>
-                            {{ restaurant.rating }}
-                        </span>
-                        <span class="text-gray-600">• {{ restaurant.deliveryTime }}</span>
+                    <div class="p-4">
+                        <h3 class="font-bold text-xl mb-2">{{ restaurant.name }}</h3>
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="flex items-center gap-1 bg-green-700 text-white px-2 py-1 rounded text-sm">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                </svg>
+                                {{ restaurant.rating }}
+                            </span>
+                            <span class="text-gray-600">• {{ restaurant.deliveryTime }}</span>
+                        </div>
+                        <p class="text-gray-600 mb-1">{{ restaurant.cuisine.join(', ') }}</p>
+                        <p class="text-gray-500">{{ restaurant.location }}</p>
                     </div>
-                    <p class="text-gray-600 mb-1">{{ restaurant.cuisine.join(', ') }}</p>
-                    <p class="text-gray-500">{{ restaurant.location }}</p>
-                </div>
+                </a>
             </div>
         </div>
 
@@ -127,23 +129,49 @@
         </div>
 
         <div class="flex flex-wrap font-semibold text-sm gap-2 py-4 justify-center sm:justify-start">
-            <button
+            <!-- <button
                 class="flex items-center gap-1 px-4 py-2 rounded-full border border-gray-300 text-gray-700 hover:bg-gray-100">
                 <span>Filter</span>
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
                 </svg>
-            </button>
+            </button> -->
 
             <button
-                class="flex items-center gap-1 px-4 py-2 rounded-full border border-gray-300 text-gray-700 hover:bg-gray-100">
+                class="flex items-center gap-1 px-4 py-2 rounded-full border border-gray-300 text-gray-700 hover:bg-gray-100"
+                (click)="toggleDropdown()">
                 <span>Sort By</span>
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                 </svg>
             </button>
+            <!-- Sort By Dropdown -->
+            <div *ngIf="showDropdown"
+                class="absolute mt-10 bg-white border border-gray-200 rounded-2xl shadow-lg p-4 w-52 z-10 space-y-2 text-base">
+                <label
+                    class="flex items-center gap-2 cursor-pointer text-gray-700 hover:text-orange-600 rounded-md py-2 transition">
+                    <input type="radio" name="sort" (change)="sortRestaurants('relevance')" /> Relevance (Default)
+                </label>
+                <label
+                    class="flex items-center gap-2 cursor-pointer text-gray-700 hover:text-orange-600 rounded-md py-2 transition">
+                    <input type="radio" name="sort" (change)="sortRestaurants('deliveryTime')" /> Delivery Time
+                </label>
+                <label
+                    class="flex items-center gap-2 cursor-pointer text-gray-700 hover:text-orange-600 rounded-md py-2 transition">
+                    <input type="radio" name="sort" (change)="sortRestaurants('rating')" /> Rating
+                </label>
+                <label
+                    class="flex items-center gap-2 cursor-pointer text-gray-700 hover:text-orange-600 rounded-md py-2 transition">
+                    <input type="radio" name="sort" (change)="sortRestaurants('lowPrice')" /> Cost: Low to High
+                </label>
+                <label
+                    class="flex items-center gap-2 cursor-pointer text-gray-700 hover:text-orange-600 rounded-md py-2 transition">
+                    <input type="radio" name="sort" (change)="sortRestaurants('highPrice')" /> Cost: High to Low
+                </label>
+            </div>
+
 
             <!-- Filter Buttons -->
             <button [class.bg-gray-100]="isFilterActive('rating')" (click)="applyFilter('rating')"
