@@ -22,10 +22,14 @@ interface UserDetails {
       (click)="onClose.emit()"
     ></div>
 
-    <!-- Sidebar -->
+    <!-- Sidebar with Tailwind slide animation -->
     <div
+      *ngIf="isOpen"
       class="fixed top-0 right-0 w-full sm:w-[600px] h-full bg-white z-50 transform transition-transform duration-300 ease-in-out"
-      [ngClass]="isOpen ? 'translate-x-0' : 'translate-x-full'"
+      [ngClass]="{
+        'translate-x-0': isOpen,
+        'translate-x-full': !isOpen
+      }"
     >
       <!-- Close button -->
       <button
@@ -48,24 +52,26 @@ interface UserDetails {
       </button>
 
       <div class="p-8 pt-16">
-  <div class="flex items-center justify-between mb-6">
-    <!-- Login Text -->
-    <h1 class="text-3xl font-bold mb-4">Login</h1>
+        <div class="flex items-center justify-between mb-6">
+          <!-- Login Text -->
+          <h1 class="text-3xl font-bold mb-4">Login</h1>
 
-        <!-- <div class="mb-6">
+          <!-- <div class="mb-6">
           <span class="text-gray-600">or </span>
           <a href="#" class="text-orange-500 hover:text-orange-600">create an account</a>
         </div> -->
 
-        <!-- Biryani Image -->
-        <div class="w-24 h-24 rounded-full bg-gray-100 overflow-hidden flex items-center justify-center">
-            <img 
-                src="assets/crusto.avif" 
-                alt="Biryani" 
-                class="w-full h-full object-cover"
+          <!-- Biryani Image -->
+          <div
+            class="w-24 h-24 rounded-full bg-gray-100 overflow-hidden flex items-center justify-center"
+          >
+            <img
+              src="assets/crusto.avif"
+              alt="Biryani"
+              class="w-full h-full object-cover"
             />
+          </div>
         </div>
-  </div>
 
         <!-- Username and Password Inputs -->
         <div class="mb-6">
@@ -101,8 +107,8 @@ interface UserDetails {
           <a href="#" class="text-gray-900 hover:underline">Privacy Policy</a>
         </p>
       </div>
-    </div>
-  `,
+    </div>`
+  ,
 })
 export class LoginSidebarComponent {
   @Input() isOpen: boolean = false;
