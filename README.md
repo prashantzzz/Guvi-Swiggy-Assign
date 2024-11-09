@@ -16,6 +16,11 @@ One valid credential is:
     Username: Prashant
     Password: password
 
-Also, implemented sort and filter on homepage.
+## Other functonalities
+A responsive website with hamburger on mobile screen for the nav bar.
+
+Implemented sort and filter on homepage.
+
 The cart keeps track of all the items added in local storage.
+
 Similarly user's login session can also be stored in localhost but due to time contraint, couldn't do it.
