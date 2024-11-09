@@ -23,4 +23,4 @@ Implemented sort and filter on homepage.
 
 The cart keeps track of all the items added in local storage.
 
-Similarly user's login session can also be stored in localhost but due to time contraint, couldn't do it.
+Similarly user's login session can also be stored in localhost..
