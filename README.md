@@ -13,7 +13,7 @@ There are other restaurants and menu also, their data is fetched from json file.
 Login/Logout works! Login details are fetched from mockapi: https://672dd79bfd8979715643ea5d.mockapi.io/userdetails
 
 One valid credential is: 
-    Username: Prashant
+    Username: prashant
     Password: password
 
 ## Other functonalities
